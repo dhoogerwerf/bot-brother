@@ -41,7 +41,7 @@ class CommandHandler
     @session.meta.chat ||= @message?.chat
     @session.meta.sessionId ||= @provideSessionId()
     @session.data ||= {} # user data
-    @session.backHistory || = {}
+    @session.backHistory ||= {}
     @session.backHistoryArgs ||= {}
     @prevHandler = params.prevHandler
     @noChangeHistory = params.noChangeHistory
@@ -117,6 +117,7 @@ class CommandHandler
     return if !@name && !@isSynthetic && @type != 'callback'
 
     if @type is 'answer'
+      @original = @message
       @args = @session.invokeArgs
       unless _.isEmpty(@session.keyboardMap)
         @answer = @session.keyboardMap[@message.text]

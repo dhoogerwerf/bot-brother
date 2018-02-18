@@ -20,4 +20,4 @@ module.exports = (grunt) ->
     }
   }
 
-  grunt.registerTask 'prepublish', ['coffeelint', 'coffee:compile']
+  grunt.registerTask 'prepublish', ['coffee:compile']
